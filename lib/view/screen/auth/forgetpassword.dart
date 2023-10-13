@@ -42,7 +42,11 @@ class ForgetPassword extends StatelessWidget {
             labeltext: "Email",
             // mycontroller: ,
           ),
-          CustomButtomAuth(text: "Check", onPressed: () {}),
+          CustomButtomAuth(
+              text: "Check",
+              onPressed: () {
+                controller.goToVerfiyCode();
+              }),
           const SizedBox(height: 40),
         ]),
       ),
