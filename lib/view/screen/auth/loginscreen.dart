@@ -1,15 +1,17 @@
+import 'package:ecommerce_app/controller/auth/login_controller.dart';
 import 'package:ecommerce_app/core/constants/colors.dart';
 import 'package:ecommerce_app/view/widget/auth/custombuttonauth.dart';
 import 'package:ecommerce_app/view/widget/auth/customtextbodyauth.dart';
 import 'package:ecommerce_app/view/widget/auth/customtextformauth.dart';
 import 'package:ecommerce_app/view/widget/auth/customtexttitleauth.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_utils/get_utils.dart';
+import 'package:get/get.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
   @override
   Widget build(BuildContext context) {
+    LoginControllerImp controller = Get.put(LoginControllerImp());
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
@@ -46,7 +48,9 @@ class LoginScreen extends StatelessWidget {
               // mycontroller: ,
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                controller.goToForgetPassword();
+              },
               child: Text(
                 '9'.tr,
                 textAlign: TextAlign.end,
@@ -60,6 +64,9 @@ class LoginScreen extends StatelessWidget {
               children: [
                 Text('10'.tr),
                 InkWell(
+                  onTap: () {
+                    controller.goToSignUp();
+                  },
                   child: Text(
                     '11'.tr,
                     style: const TextStyle(
