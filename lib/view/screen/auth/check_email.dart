@@ -1,16 +1,18 @@
+import 'package:ecommerce_app/controller/auth/chexkemail_controller.dart';
 import 'package:ecommerce_app/core/constants/colors.dart';
 import 'package:ecommerce_app/view/widget/auth/custombuttonauth.dart';
 import 'package:ecommerce_app/view/widget/auth/customtextbodyauth.dart';
+import 'package:ecommerce_app/view/widget/auth/customtextformauth.dart';
 import 'package:ecommerce_app/view/widget/auth/customtexttitleauth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class ResetPassword extends StatelessWidget {
-  const ResetPassword({Key? key}) : super(key: key);
+class CheckEmail extends StatelessWidget {
+  const CheckEmail({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // ResetPasswordControllerImp controller =
-    //     Get.put(ResetPasswordControllerImp());
+    CheckEmailControllerImp controller = Get.put(CheckEmailControllerImp());
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -32,14 +34,18 @@ class ResetPassword extends StatelessWidget {
               text:
                   "Sign Up With Your Email And Password OR Continue With Social Media"),
           const SizedBox(height: 15),
-          // CustonTextFormAuth(
-          //   mycontroller: controller.email,
-          //   hinttext: "Enter Your Email",
-          //   iconData: Icons.email_outlined,
-          //   labeltext: "Email",
-          //   // mycontroller: ,
-          // ),
-          CustomButtomAuth(text: "Check", onPressed: () {}),
+          CustonTextFormAuth(
+            mycontroller: controller.email,
+            hinttext: "Enter Your Email",
+            iconData: Icons.email_outlined,
+            labeltext: "Email",
+            // mycontroller: ,
+          ),
+          CustomButtomAuth(
+              text: "Check",
+              onPressed: () {
+                controller.goToSuccessSignUp();
+              }),
           const SizedBox(height: 40),
         ]),
       ),
