@@ -1,12 +1,16 @@
+import 'package:ecommerce_app/controller/auth/successsignup_controller.dart';
 import 'package:ecommerce_app/core/constants/colors.dart';
 import 'package:ecommerce_app/view/widget/auth/custombuttonauth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SuccessSignUp extends StatelessWidget {
   const SuccessSignUp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    SuccessSignUpControllerImp controller =
+        Get.put(SuccessSignUpControllerImp());
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -28,19 +32,19 @@ class SuccessSignUp extends StatelessWidget {
             size: 200,
             color: AppColors.primaryColor,
           )),
-          Text('',
+          Text('congratulations',
               style: Theme.of(context)
                   .textTheme
                   .displayLarge!
                   .copyWith(fontSize: 30)),
-          const Text(''),
+          const Text('Password has been reset successfully'),
           const Spacer(),
           SizedBox(
             width: double.infinity,
             child: CustomButtomAuth(
-                text: '',
+                text: 'Go To Login',
                 onPressed: () {
-                  // controller.signUp();
+                  controller.goToPageLogin();
                 }),
           ),
           const SizedBox(height: 30)

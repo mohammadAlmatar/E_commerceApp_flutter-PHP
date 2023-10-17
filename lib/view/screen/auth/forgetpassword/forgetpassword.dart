@@ -35,8 +35,12 @@ class ForgetPassword extends StatelessWidget {
               text:
                   "Sign Up With Your Email And Password OR Continue With Social Media"),
           const SizedBox(height: 15),
-          CustonTextFormAuth(
+          CustomTextFormAuth(
+            isNumber: false,
             mycontroller: controller.email,
+            valid: (value) {
+              return null;
+            },
             hinttext: "Enter Your Email",
             iconData: Icons.email_outlined,
             labeltext: "Email",

@@ -1,7 +1,8 @@
-import 'package:ecommerce_app/view/screen/auth/check_email.dart';
-import 'package:flutter/material.dart';
-
+import 'package:ecommerce_app/view/screen/auth/forgetpassword/verifycode_signup.dart';
+import 'package:ecommerce_app/view/screen/language.dart';
+import 'package:get/get.dart';
 import 'core/constants/routesname.dart';
+import 'core/middleware/mymiddleware.dart';
 import 'view/screen/auth/forgetpassword/forgetpassword.dart';
 import 'view/screen/auth/forgetpassword/resetpassword.dart';
 import 'view/screen/auth/forgetpassword/success_resetpassword.dart';
@@ -11,15 +12,19 @@ import 'view/screen/auth/signup.dart';
 import 'view/screen/auth/success_signup.dart';
 import 'view/screen/onboarding.dart';
 
-Map<String, Widget Function(BuildContext)> routes = {
-  AppRoutes.login: (context) => const LoginScreen(),
-  AppRoutes.signUp: (context) => const SignUp(),
-  AppRoutes.forgetPassword: (context) => const ForgetPassword(),
-  AppRoutes.checkemail: (context) => const CheckEmail(),
-  AppRoutes.verfiyCode: (context) => const VerfiyCode(),
-  AppRoutes.resetPassword: (context) => const ResetPassword(),
-  AppRoutes.successresetpassword: (context) => const SuccessResetPassword(),
-  AppRoutes.successsignup: (context) => const SuccessSignUp(),
-  //onBoarding
-  AppRoutes.onBoarding: (context) => const OnBoarding(),
-};
+List<GetPage<dynamic>>? pages = [
+  GetPage(
+      name: "/", page: () => const Language(), middlewares: [MyMiddleWare()]),
+  GetPage(name: AppRoutes.login, page: () => const LoginScreen()),
+  GetPage(name: AppRoutes.signUp, page: () => const SignUp()),
+  GetPage(name: AppRoutes.forgetPassword, page: () => const ForgetPassword()),
+  GetPage(name: AppRoutes.verfiyCode, page: () => const VerfiyCode()),
+  GetPage(name: AppRoutes.resetPassword, page: () => const ResetPassword()),
+  GetPage(
+      name: AppRoutes.successresetpassword,
+      page: () => const SuccessResetPassword()),
+  GetPage(name: AppRoutes.successsignup, page: () => const SuccessSignUp()),
+  GetPage(name: AppRoutes.onBoarding, page: () => const OnBoarding()),
+  GetPage(
+      name: AppRoutes.verifycodesignup, page: () => const VerifyCodeSignUp()),
+];
